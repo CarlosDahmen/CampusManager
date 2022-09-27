@@ -33,9 +33,19 @@ const EditCampus = (props) => {
     )
   }
 
+  const updateStudent = data => {
+    axios.put(`http://localhost:3000/api/students/${data.studentId}`, data).then(
+      fetchCampus()
+    )
+  }
+
   const submitHandler = evt => {
     evt.preventDefault()
     updateCampus({ name, address, description })
+  }
+
+  const unsubscribeStudent = (studentId) => {
+    updateStudent({ studentId, campusId: null })
   }
 
   useEffect(() => {
@@ -54,14 +64,19 @@ const EditCampus = (props) => {
           <label htmlFor="campusDescription">Campus Description:</label>
           <input name="description" onChange={(evt) => setDescription(evt.target.value)} value={description} />
           <button type="submit">Update</button>
+          <h2>Students in this Campus:</h2>
+          {
+          students.length === 0 ? <h3>No Students assigned to this campus</h3> :
+          students.map(student => {
+            return (
+              <div key={student.id}>
+                <h3>{student.firstName} {student.lastName}</h3>
+                <button onClick={() => unsubscribeStudent(student.id)} type="button"> Unsubscribe this student from this campus</button>
+              </div>
+            )
+            })
+          }
         </form>
-        <h2>Students in this Campus:</h2>
-        {
-        students.length === 0 ? <h3>No Students assigned to this campus</h3>  :
-        students.map(student => {
-            return <h3>{student.firstName} {student.lastName}</h3>
-        })
-        }
       </ div>
     </div>
   )

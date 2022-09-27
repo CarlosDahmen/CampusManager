@@ -21,9 +21,9 @@ studentRouter.put('/:id', async (req, res, next) => {
   try {
     const toUpdate = await Student.findByPk(
       req.params.id,
-      {
-        include: Warehouse
-      }
+      // {
+      //   include: Campus
+      // }
     );
 
     const update = await toUpdate.update(req.body);

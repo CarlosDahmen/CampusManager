@@ -5,6 +5,7 @@ import Students from "./Students";
 import NewCampus from './NewCampus';
 import NewStudent from './NewStudent';
 import EditCampus from './EditCampus';
+import EditStudent from './EditStudent';
 
 function Router(){
   return(
@@ -16,6 +17,7 @@ function Router(){
         <Route path='/campuses/create' element={<NewCampus/>} />
         <Route path='/students' element={<Students/>} />
         <Route path='/students/create' element={<NewStudent/>} />
+        <Route path='/students/:studentId/' element={<EditStudent/>} />
       </Routes>
     </div>
   )
