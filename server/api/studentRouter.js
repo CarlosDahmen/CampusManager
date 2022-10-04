@@ -1,5 +1,5 @@
 const Student = require('../db/models/student');
-const Carehouse = require('../db/models/campus');
+const Campus = require('../db/models/campus');
 const studentRouter = require('express').Router();
 
 
@@ -36,7 +36,7 @@ studentRouter.put('/:id', async (req, res, next) => {
 // GET /api/students
 studentRouter.get('/', async (req, res, next) => {
   try {
-    const students = await Student.findAll();
+    const students = await Student.findAll({order: ["id"]});
     res.json(students);
   } catch (err) {
     next(err);
