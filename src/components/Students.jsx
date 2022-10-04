@@ -2,7 +2,6 @@ import Navbar from "./Navbar"
 import Card from "./Card"
 import axios from 'axios'
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
 
 const Students = () => {
   const [students, setStudents] = useState([])
@@ -24,8 +23,6 @@ const Students = () => {
     fetchStudents()
   }, [])
 
-  let navigate = useNavigate()
-
   const newStudentClickHandler = (evt) => {
     evt.preventDefault();
     navigate("./create", { replace: true })
@@ -35,14 +32,16 @@ const Students = () => {
     <div>
     <Navbar />
       <span>
-        <h2>All Students</h2>
-        <button
-        className="new-student-button"
-        type="button"
-        onClick={newStudentClickHandler}
-        >
-        Create New Student
-        </button>
+        <div id="header">
+          <h2>List of All Students</h2>
+          <button
+          className="new-student-button"
+          type="button"
+          onClick={newStudentClickHandler}
+          >
+          Create New Student
+          </button>
+        </div>
         {students.length === 0 ?
         <h1>No Students found!</h1> :
         <div>
@@ -51,9 +50,10 @@ const Students = () => {
           <Card
             key={student.id}
             id={student.id}
+            imgUrl={student.imageUrl}
             name={`${student.firstName} ${student.lastName}`}
-            delete={deleteStudent}
-            navigate={navigate}
+            onDelete={deleteStudent}
+            // route='students'
             />
           )
         })}

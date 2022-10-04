@@ -11,13 +11,13 @@ function Router(){
   return(
     <div>
       <Routes>
-        <Route path='/' element={<Navbar/>} />
-        <Route path='/campuses' element={<Campuses/>} />
+        <Route path='students/:studentId/' element={<EditStudent/>} />
         <Route path='/campuses/:campusId/' element={<EditCampus/>} />
         <Route path='/campuses/create' element={<NewCampus/>} />
-        <Route path='/students' element={<Students/>} />
         <Route path='/students/create' element={<NewStudent/>} />
-        <Route path='/students/:studentId/' element={<EditStudent/>} />
+        <Route path='/campuses' element={<Campuses/>} />
+        <Route path='/students' element={<Students/>} />
+        <Route path='/' element={<Navbar/>} />
       </Routes>
     </div>
   )

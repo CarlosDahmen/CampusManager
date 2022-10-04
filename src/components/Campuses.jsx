@@ -2,7 +2,6 @@ import Navbar from "./Navbar"
 import Card from "./Card"
 import axios from 'axios'
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
 
 const Campuses = () => {
 
@@ -26,8 +25,6 @@ const Campuses = () => {
     fetchCampuses()
   }, [])
 
-  let navigate = useNavigate()
-
   const newCampusClickHandler = (evt) => {
     evt.preventDefault();
     navigate("./create", { replace: true })
@@ -37,14 +34,16 @@ const Campuses = () => {
     <div>
     <Navbar />
       <span>
-        <h2>All Campuses</h2>
-        <button
-        className="new-campus-button"
-        type="button"
-        onClick={newCampusClickHandler}
-        >
-        Create New Campus
-        </button>
+        <div id="header">
+          <h2>List of All Campuses</h2>
+          <button
+          className="new-campus-button"
+          type="button"
+          onClick={newCampusClickHandler}
+          >
+          Create New Campus
+          </button>
+        </div>
         {campuses.length === 0 ?
         <h1>No Campuses in DB</h1> :
         <div>
@@ -55,7 +54,8 @@ const Campuses = () => {
             id={campus.id}
             name={campus.name}
             delete={deleteCampus}
-            navigate={navigate}
+            imgUrl={campus.imageUrl}
+            // route= 'campuses'
             />
           )
         })}
