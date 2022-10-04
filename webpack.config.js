@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// import './public/style.css'
 
 module.exports = {
   mode: 'development',
@@ -32,8 +33,8 @@ module.exports = {
           }
       },
       {
-          test: /\.scss$/i,
-          use: ["style-loader", "css-loader", "sass-loader"],
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
       },
     ]
     },
