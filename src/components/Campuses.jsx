@@ -2,9 +2,11 @@ import Navbar from "./Navbar"
 import Card from "./Card"
 import axios from 'axios'
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Campuses = () => {
 
+  const navigate = useNavigate()
   const [campuses, setCampuses] = useState([])
   const [students, setStudents] = useState([])
 
