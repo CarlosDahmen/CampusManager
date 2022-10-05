@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from './Navbar';
+import Card from './Card';
 
 const EditCampus = (props) => {
 
@@ -67,14 +68,29 @@ const EditCampus = (props) => {
           <h2>Students in this Campus:</h2>
           {
           students.length === 0 ? <h3>No Students assigned to this campus</h3> :
+
           students.map(student => {
             return (
-              <div key={student.id}>
-                <h3>{student.firstName} {student.lastName}</h3>
+              <div>
+                <Card
+                  key={student.firstName}
+                  id={student.id}
+                  imgUrl={student.imageUrl}
+                  name={`${student.firstName} ${student.lastName}`}
+                />
                 <button onClick={() => unsubscribeStudent(student.id)} type="button"> Unsubscribe this student from this campus</button>
               </div>
-            )
+              )
             })
+
+          // students.map(student => {
+          //   return (
+          //     <div key={student.id}>
+          //       <h3>{student.firstName} {student.lastName}</h3>
+                // <button onClick={() => unsubscribeStudent(student.id)} type="button"> Unsubscribe this student from this campus</button>
+          //     </div>
+          //   )
+          //   })
           }
         </form>
       </ div>
