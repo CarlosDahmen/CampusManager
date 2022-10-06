@@ -59,7 +59,7 @@ const Campuses = () => {
                   name={campus.name}
                   delete={deleteCampus}
                   imageUrl={campus.imageUrl}
-                  navigateTo={() => navigate(`campuses/${campus.id}`)}
+                  navigateTo={() => navigate(`${campus.id}`)}
                 />
               );
             })}
