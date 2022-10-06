@@ -15,10 +15,10 @@ body {
   font-weight: 700;
 }
 
-a{
+a {
   text-decoration: none;
   color: #ffeaa7;
-  margin: 24px
+  margin: 24px;
 }
 
 #header {
@@ -27,22 +27,67 @@ a{
   justify-content: space-around;
 }
 
-.card{
-  margin-bottom: 20px;
+.card {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 25px;
   border-style: solid;
   display: flex;
-  margin-left: 60px;
-  margin-right: 60px;
   border-color: #1f2029;
   border-radius: 8px;
   box-shadow: 5px 5px 5px grey;
+  padding: 10px;
 }
 
-img{
+img {
   width: 100px;
   height: 100px;
 }
 
-.card-text{
+.card-text {
   margin-left: 15px;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 5px;
+}
+
+form input {
+  margin-bottom: 5px;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+form button {
+  width: 30%;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card .card-information h2 {
+  margin: 0;
+}
+
+.edit-page {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-left: 50px;
+}
+
+input {
+  width: 300px;
 }

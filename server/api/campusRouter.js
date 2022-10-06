@@ -12,7 +12,6 @@ campusRouter.get('/:id', async (req, res, next) => {
     const students = await Student.findAll(
       {where: {campusId: req.params.id}}
     )
-    console.log(campus, students)
     res.json({campus, students})
   } catch (err) {
     next(err);
